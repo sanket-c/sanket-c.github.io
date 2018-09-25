@@ -15,19 +15,18 @@
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/popper.min.js"></script>
 	<script type="text/javascript">
+		let includePage = "assets/components/home.html";
 		$(function(){
 			$("#header").load("assets/components/header.html");
-			$("#include").load("assets/components/home.html");
+			$("#include").load(includePage);
 			$("#footer").load("assets/components/footer.html");
 		});
-	</script>
-	<script type="text/javascript">
-		var includeDiv = $("#include");
-		$(window).on('hashchange', function() {
-			var href = location.hash.slice(1) +".html";
-			alert(href);
-			includeDiv.load('assets/components/' + href);
-		});
+
+        $(window).on('hashchange', function() {
+            var href = location.hash.slice(1) +".html";
+            includePage = 'assets/components/' + href;
+            $("#include").load(includePage);
+        });
 	</script>
 </head>
 
